@@ -4,23 +4,19 @@
     config(['$stateProvider','$urlRouterProvider',
     function($stateProvider,$urlRouterProvider) {
 
-   $urlRouterProvider.otherwise('/home');
+   $urlRouterProvider.otherwise('/home/');
 
       $stateProvider
         .state('home',{
-          url:'/home',
-          data:{
-            phoneid:"dell-streak-7"
-          },
+          url:'/home/:id',
+
           views:{
             'filters':{
               template:"<phone-filter></phone-filter>"
 
             },
             'specs':{
-              template:"<phone-specs></phone-specs>",
-
-
+              template:"<phone-specs></phone-specs>"
             }
           }
         })

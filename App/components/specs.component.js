@@ -10,10 +10,20 @@ angular.
         self.setImage = function setImage(imageUrl) {
           self.mainImageUrl = imageUrl;
         };
-        console.log($state.current.data.phoneid);
-        $http.get('phones/dell-streak-7.json').then(function(response){
+
+
+        var phoneid = $stateParams.id;
+
+        if(phoneid == ""){
+          phoneid = "motorola-xoom-with-wi-fi";
+        }
+        console.log("id"+phoneid);
+
+
+
+        $http.get('phones/'+phoneid+'.json').then(function(response){
           self.data=response.data;
-          console.log(response.data);
+
           self.phone=response.data;
           self.setImage(response.data.images[0]);
 
